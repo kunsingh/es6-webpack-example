@@ -1,7 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var CleanWebpackPlugin = require('clean-webpack-plugin');
 var UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
 
 module.exports = {
@@ -47,7 +46,6 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: "index.html" // include html to final dist
         }),
-        new CleanWebpackPlugin(['dist','coverage']),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
                 warnings: false
