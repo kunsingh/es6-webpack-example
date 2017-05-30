@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Webpack 2 Basics</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"/>
+    <style>
+        .container {
+            margin: 50px;
+        }
+
+        .btn {
+            margin-top: 25px;
+        }
+    </style>
+    <script src="dist/bundle.js" type="text/javascript"></script>
+    <script>
+        function calculateValue(){
+            var operand1 = document.getElementById('operand1').value;
+            var operand2 = document.getElementById('operand2').value;
+            var operator = document.getElementById('operator').value;
+            var result = calc.calculate(operand1, operand2, operator);
+            document.getElementById("result").value = result;
+        }
+
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="form-group row">
+        <div class="col-xs-2">
+            <label for="operand1">Operand-1</label>
+            <input class="form-control" id="operand1" type="number">
+        </div>
+        <div class="col-xs-2">
+            <label for="operand2">Operand-2</label>
+            <input class="form-control" id="operand2" type="number">
+        </div>
+        <div class="col-xs-1">
+            <label for="operator">Operator</label>
+            <select id="operator" class="form-control" required>
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+        </div>
+        <div class="col-xs-1">
+            <button type="button" onclick="calculateValue()" class="btn btn-info">Calculate</button>
+        </div>
+        <div class="col-xs-4">
+            <label for="result">Result: </label>
+            <input class="form-control" id="result" type="text">
+        </div>
+    </div>
+</div>
+</body>
+</html>
