@@ -2,7 +2,7 @@ language: node_js
 node_js: stable
 dist: trusty
 addons:
-  sauce_connect: true
+#  sauce_connect: true
   sonarqube:
       token:
         secure: ${SONAR_TOKEN}
@@ -10,18 +10,17 @@ addons:
         - master
 
 before_script:
-  - npm install
+  - npm install -g npm-run-all
   - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
   - npm install
   - npm update
-  - bower update
 
 script:
-  - gulp clean verify build
-  - gulp saucelabs
+  - npm-run-all clean test build
+#  - gulp saucelabs
 
 after_success:
-  - sonar-scanner
+#  - sonar-scanner
 cache:
   directories:
     - '$HOME/.sonar/cache'
